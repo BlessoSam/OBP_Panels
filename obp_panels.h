@@ -8,6 +8,8 @@
 #include <QDebug>
 #include <QDial>
 #include <QFrame>
+#include <QThread>
+#include "worker.h"
 class OBP_Panels : public QMainWindow
 {
     Q_OBJECT
@@ -88,5 +90,50 @@ private:
 
     QHBoxLayout *h_layout;
 
+private:
+    Worker *worker;
+    QThread *thread;
+
+private slots:
+    //right side
+    void on_manual_mode_btn_clicked();
+    void on_ok_btn_clicked();
+    void on_menu_up_btn_clicked();
+    void on_menu_down_btn_clicked();
+    void on_stab_btn_clicked();
+    void on_redbright_btn_clicked();
+    void on_orf_btn_clicked();
+    void on_ele_btn_clicked();
+    void on_bright_btn_clicked();
+    void on_vcr_btn_clicked();
+    void on_azi_btn_clicked();
+    void on_oled_btn_clicked();
+    void on_lrf_btn_clicked();
+    void on_mot_btn_clicked();
+    void on_head_btn_clicked();
+    void on_spare_btn_clicked();
+    void on_head_win_btn_clicked();
+    void on_spare_two_btn_clicked();
+
+    //left side
+
+    void on_menu_up_button_clicked();
+    void  on_menu_down_button_clicked();
+    void on_ok_button_clicked();
+    void on_direct_view_button_clicked();
+    void on_split_button_clicked();
+    void on_camera_view_button_clicked();
+    void on_filter_one_button_clicked();
+    void on_focus_button_clicked();
+    void on_llltv_button_clicked();
+    void on_filter_two_button_clicked();
+    void on_filter_pol_button_clicked();
+    void on_ir_button_clicked();
+    void on_filter_three_button_clicked();
+    void on_no_filter_button_clicked();
+    void on_hdtv_button_clicked();
+
+signals:
+    void sendData(uint16_t data);
 };
 #endif // OBP_PANELS_H

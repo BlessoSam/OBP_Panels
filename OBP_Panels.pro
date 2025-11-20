@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     obp_panels.cpp \
-    pushbutton.cpp
+    pushbutton.cpp \
+    worker.cpp
 
 HEADERS += \
     obp_panels.h \
-    pushbutton.h
+    pushbutton.h \
+    worker.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

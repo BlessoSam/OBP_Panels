@@ -1,17 +1,15 @@
 #include "pushbutton.h"
 
-PushButton::PushButton(QString color, QString text, uint16_t serial_number, QLayout *parent)
+PushButton::PushButton(QString color, QString text, uint16_t serial_number, QWidget *parent):QPushButton(parent)
 {
     this->color = color;
     this->text = text;
     this->serial_number = serial_number;
-    button = new QPushButton();
-    parent->addWidget(button);
-    button->setText(text);
-    button->setFixedSize(100,100);
-    button->setStyleSheet(QString("QPushButton {" "background-color:%1;" "color:black;" "border-radius:50px;" "}").arg(color));
+    this->setText(text);
+    this->setFixedSize(100,100);
+    this->setStyleSheet(QString("QPushButton {" "background-color:%1;" "color:black;"  "border-radius:50px;" "border:7px solid black" "}").arg(color));
     // button->setMinimumSize(80,80);
-    button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
 
 
@@ -31,23 +29,25 @@ PushButton::PushButton(QString color, QString text, uint16_t serial_number, QLay
 // }
 
 
-void PushButton::resizeEvent(QResizeEvent *event)
-{
-    QPushButton::resizeEvent(event);
+// void PushButton::resizeEvent(QResizeEvent *event)
+// {
+//     QPushButton::resizeEvent(event);
 
-    // Ensure square shape
-    int side = qMin(width(), height());
-    resize(side, side);
+//     // Ensure square shape
+//     int side = qMin(width(), height());
+//     resize(side, side);
 
-    // Update stylesheet with dynamic radius
-    setStyleSheet(QString(
-                      "QPushButton {"
-                      "border-radius: %1px;"
-                      "background-color:%2;"
-                      "color:black;"
-                      "border: 2px solid darkblue;"
-                      "}").arg(side/2).arg(color));
-}
+//     // Update stylesheet with dynamic radius
+//     setStyleSheet(QString(
+//                       "QPushButton {"
+//                       "border-radius: %1px;"
+//                       "background-color:%2;"
+//                       "color:black;"
+//                       "border: 2px solid darkblue;"
+//                       "}").arg(side/2).arg(color));
+// }
+
+
 
 
 

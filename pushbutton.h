@@ -10,7 +10,7 @@ class PushButton : public QPushButton
 {
     Q_OBJECT
 public:
-    explicit PushButton(QString color, QString text, uint16_t serial_number, QLayout *parent = nullptr);
+    explicit PushButton(QString color, QString text, uint16_t serial_number, QWidget *parent = nullptr);
 
 private:
     QString color;
@@ -18,9 +18,7 @@ private:
     int serial_number;
     QPushButton *button;
 
-    void resizeEvent(QResizeEvent *event) override;
-
-
+    // void resizeEvent(QResizeEvent *event) override;
 
 public:
     QString get_color();
